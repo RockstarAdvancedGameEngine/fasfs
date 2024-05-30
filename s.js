@@ -9,17 +9,24 @@ alert("XVR Injected!");
     box.style.position = 'absolute';
     box.style.top = '100px';
     box.style.left = '100px';
-    box.style.width = '200px';
-    box.style.height = '150px';
+    box.style.width = '250px';
+    box.style.height = '200px';
     box.style.backgroundColor = '#f0f0f0';
     box.style.border = '1px solid #ccc';
     box.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
     box.style.borderRadius = '8px';
-    box.style.padding = '0'; // Remove padding from the main box
     box.style.zIndex = '1000';
+    box.style.overflow = 'hidden'; // Ensure the content stays within the box
     box.innerHTML = `
         <div id="xvrBoxHeader" style="background: #007bff; color: white; padding: 5px; border-radius: 5px 5px 0 0; cursor: move;">XVR Box</div>
-        <div style="padding: 10px;">Draggable Content</div>
+        <div style="padding: 10px;">
+            <button id="btn1">Button 1</button>
+            <button id="btn2">Button 2</button>
+            <div style="margin-top: 10px;">
+                <input type="checkbox" id="chk1"><label for="chk1"> Checkbox 1</label><br>
+                <input type="checkbox" id="chk2"><label for="chk2"> Checkbox 2</label>
+            </div>
+        </div>
     `;
     
     // Append the box to the body
@@ -50,4 +57,22 @@ alert("XVR Injected!");
         document.onmousemove = null;
         document.onmouseup = null;
     }
+
+    // Placeholder actions for buttons and checkboxes
+    document.getElementById('btn1').addEventListener('click', function() {
+        alert('Button 1 clicked!');
+    });
+
+    document.getElementById('btn2').addEventListener('click', function() {
+        alert('Button 2 clicked!');
+    });
+
+    document.getElementById('chk1').addEventListener('change', function() {
+        alert(`Checkbox 1 is now ${this.checked ? 'checked' : 'unchecked'}`);
+    });
+
+    document.getElementById('chk2').addEventListener('change', function() {
+        alert(`Checkbox 2 is now ${this.checked ? 'checked' : 'unchecked'}`);
+    });
+
 })();
