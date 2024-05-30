@@ -1,9 +1,6 @@
-// Show alert
-alert("XVR Injected!");
+alert("Menu Loaded!");
 
-// Create draggable GUI box
 (function() {
-    // Create the box element
     const box = document.createElement('div');
     box.id = 'xvrBox';
     box.style.position = 'absolute';
@@ -16,11 +13,11 @@ alert("XVR Injected!");
     box.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
     box.style.borderRadius = '8px';
     box.style.zIndex = '1000';
-    box.style.overflow = 'hidden'; // Ensure the content stays within the box
+    box.style.overflow = 'hidden'; 
     box.innerHTML = `
         <div id="xvrBoxHeader" style="background: #007bff; color: white; padding: 5px; border-radius: 5px 5px 0 0; cursor: move;">XVR Box</div>
         <div style="padding: 10px;">
-            <input type="text" id="numberInput" placeholder="Enter a number"><br><br>
+            <input type="text" id="numberInput" placeholder="Input"><br><br>
             <button id="btnAlert">Show Alert</button>
             <button id="btnClear">Clear Input</button>
             <div style="margin-top: 10px;">
@@ -67,6 +64,14 @@ alert("XVR Injected!");
         } else {
             alert('Please enter a valid number.');
         }
+    });
+
+    document.getElementById('btn1').addEventListener('click', function() {
+        alert('Button 1 clicked!');
+    });
+
+    document.getElementById('btn2').addEventListener('click', function() {
+        alert('Button 2 clicked!');
     });
 
     document.getElementById('btnClear').addEventListener('click', function() {
