@@ -2,7 +2,7 @@ alert("Menu Loaded!");
 
 (function() {
     const box = document.createElement('div');
-    box.id = 'xvrBox';
+    box.id = 'menuBox';
     box.style.position = 'absolute';
     box.style.top = '100px';
     box.style.left = '100px';
@@ -15,7 +15,9 @@ alert("Menu Loaded!");
     box.style.zIndex = '1000';
     box.style.overflow = 'hidden'; 
     box.innerHTML = `
-        <div id="xvrBoxHeader" style="background: #007bff; color: white; padding: 5px; border-radius: 5px 5px 0 0; cursor: move;">XVR Box</div>
+        <div id="menuBoxHeader" style="background: #007bff; color: white; padding: 5px; border-radius: 5px 5px 0 0; cursor: move;">Menu Box
+            <button id="closeButton" style="float: right; background: none; border: none; color: white; cursor: pointer;">&times;</button>
+        </div>
         <div style="padding: 10px;">
             <input type="text" id="numberInput" placeholder="Input"><br><br>
             <button id="btnAlert">Show Alert</button>
@@ -23,7 +25,12 @@ alert("Menu Loaded!");
             <div style="margin-top: 10px;">
                 <input type="checkbox" id="chk1"><label for="chk1"> Checkbox 1</label><br>
                 <input type="checkbox" id="chk2"><label for="chk2"> Checkbox 2</label>
+                <button id="btn1">Button 1</button>
+                <button id="btn2">Button 2</button>
             </div>
+        </div>
+        <div style="position: absolute; bottom: 10px; width: 100%; text-align: center;">
+            <a href="https://github.com/zix92i89451" target="_blank" style="color: #007bff; text-decoration: none;">Developed by Zix</a>
         </div>
     `;
     
@@ -31,7 +38,7 @@ alert("Menu Loaded!");
     document.body.appendChild(box);
 
     // Make the box draggable by the header
-    const header = document.getElementById('xvrBoxHeader');
+    const header = document.getElementById('menuBoxHeader');
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -55,6 +62,11 @@ alert("Menu Loaded!");
         document.onmousemove = null;
         document.onmouseup = null;
     }
+
+    // Close button functionality
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.body.removeChild(box);
+    });
 
     // Placeholder actions for buttons and checkboxes
     document.getElementById('btnAlert').addEventListener('click', function() {
